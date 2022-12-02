@@ -7,7 +7,12 @@ from aoc.day01 import part1, part2
 def read_file(filename):
     path = Path(__file__).parent.resolve()
     with open(path / filename, 'r') as f:
-        lines = f.read().splitlines()
+        textString = f.read()
+        stringList = textString.split('\n\n')
+        lines = []
+        for arr in stringList:
+            numberList = [int(num) for num in arr.split('\n')]
+            lines.append(numberList)
         return lines
 
 def main():
